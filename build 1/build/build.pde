@@ -25,16 +25,18 @@ float xoff2 = 10000;
 // ================================================================
 void draw() {
 	background(bgC);
-	noStroke();
-	
+	noFill();
+	stroke(255);
 	// ================================================================
+	beginShape();
+	for (int x = 0; x < width; ++x) {
+		float y = map(noise(xoff1), 0, 1, 0, height);
+		xoff1 += 0.01;	
 
-	float x = map(noise(xoff1), 0, 1, 0, width);
-	float y = map(noise(xoff2), 0, 1, 0, width);
+		vertex(x, y);
+	}
+	endShape();
 
-	xoff1 += 0.01;
-	xoff2 += 0.01;
-// ================================================================
+	noLoop();
 
-	ellipse(x, y, 24, 24);
 }
