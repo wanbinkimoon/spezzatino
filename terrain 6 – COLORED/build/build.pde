@@ -4,8 +4,9 @@ import peasy.*;
 
 int stageW      = 800;
 int stageH      = 800;
-color bgC       = #FFEE99;
-color fgC       = #00FF99;
+color bgC       = #00FF99;
+color fgC       = #fc21ec;
+color strokeC   = #84cdff;
 String dataPATH = "../../data";
 PeasyCam cam;
 
@@ -15,9 +16,9 @@ int cols, rows;
 int scl = 20;
 int w = 2000;
 int h = 2000;
-float inc = .4;
-float move = .4;
-int rough = 30;
+float inc = .08;
+float move = .04;
+int rough = 100;
 float[][] terrain;
 
 // ================================================================
@@ -53,13 +54,13 @@ void draw() {
 		yoff += inc;
 	}
 
-	move -= .05;
+	move -= .01;
 
 	lights();		
-	stroke(0);
-	// fill(fgC);
-	noFill();
+	// stroke(strokeC);
+	noStroke();
 	background(bgC);
+	// fill(fgC);			
 
 	rotateX(PI/3);
 	translate(-w/2, -h/2);
@@ -67,6 +68,7 @@ void draw() {
 	for (int y = 0; y < rows - 1; ++y) {
 		beginShape(TRIANGLE_STRIP);
 		for (int x = 0; x < cols; ++x) {
+			fill(x + y, 120, 200);
 			vertex(x * scl, y * scl, terrain[x][y]);
 			vertex(x * scl, (y+1) * scl, terrain[x][y + 1]);
 		}
