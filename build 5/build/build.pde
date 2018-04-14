@@ -7,7 +7,7 @@ String dataPATH = "../../data";
 
 void settings(){ 
 	size(stageW, stageH);
-
+	pixelDensity(1);
 }
 
 // ================================================================
@@ -20,22 +20,21 @@ void setup() {
 // ================================================================
 
 float inc = 0.01;
-float start = 0;
+float xoff = 0.01;
 
 // ================================================================
 void draw() {
-	background(bgC);
-	noFill();
-	stroke(255);
-	float xoff1 = start;
-	// ================================================================
-	beginShape();
-	for (int x = 0; x < width; ++x) {
-		float y = map(noise(xoff1), 0, 1, 0, height);
-		xoff1 += inc;	
-		vertex(x, y);
-	}
-	endShape();
 
-	start += inc;
+	loadPixels();
+	int index = width * height;
+
+		for (int i = 0; i < index; ++i) {
+			int r = int(map(noise(xoff), 0, 1, 0, 255));
+			pixels[i] = color(r, 102, 204);
+
+			xoff += inc;
+		}
+	updatePixels();
+
+	noLoop();
 }
