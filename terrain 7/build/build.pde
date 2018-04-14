@@ -64,8 +64,7 @@ void draw() {
 	// fill(fgC);			
 
 	rotateX(PI/3);
-	rotateY(radians(yRotation));
-	translate(-w/2, -h/2, -3000);
+	translate(-w/2, -h/2, -300);
 
 	for (int y = 0; y < rows - 1; ++y) {
 		beginShape(TRIANGLE_STRIP);
