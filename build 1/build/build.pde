@@ -19,23 +19,19 @@ void setup() {
 
 // ================================================================
 
-float inc = 0.01;
-float start = 0;
+float xoff = 0.01;
 
 // ================================================================
 void draw() {
 	background(bgC);
-	noFill();
-	stroke(255);
-	float xoff1 = start;
+	noStroke();
+	
 	// ================================================================
-	beginShape();
-	for (int x = 0; x < width; ++x) {
-		float y = map(noise(xoff1), 0, 1, 0, height);
-		xoff1 += inc;	
-		vertex(x, y);
-	}
-	endShape();
 
-	start += inc;
+	// float x = random(width);
+	float x = map(noise(xoff), 0, 1, 0, width);
+	xoff += 0.01;
+// ================================================================
+
+	ellipse(x, height / 2, 24, 24);
 }
