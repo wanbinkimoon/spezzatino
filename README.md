@@ -3,4 +3,4 @@
 
 _______________________
 
-![](data/territory.gif)
+![](asset/territory.gif)
