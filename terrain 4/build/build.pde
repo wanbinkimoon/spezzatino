@@ -44,9 +44,8 @@ void setup() {
 	cam = new PeasyCam(this, 600);
 }
 
-
-
 // ================================================================
+
 void draw() {
 	lights();		
 	stroke(0);

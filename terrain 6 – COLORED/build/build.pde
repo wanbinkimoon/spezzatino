@@ -54,7 +54,6 @@ void draw() {
 			}
 		yoff += inc;
 	}
-
 	move -= .01;
 
 	lights();		
